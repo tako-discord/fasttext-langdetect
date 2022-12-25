@@ -37,7 +37,7 @@ async def get_or_load_model(low_memory=False):
         return model
 
 
-async def detect(text: str, low_memory: bool=False) -> Dict[str, Union[str, float]]:
+async def detect(text: str, low_memory: bool = False) -> Dict[str, Union[str, float]]:
     model = await get_or_load_model(low_memory)
     labels, scores = model.predict(text)
     label = labels[0].replace("__label__", '')
