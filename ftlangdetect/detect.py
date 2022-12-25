@@ -25,6 +25,12 @@ async def get_or_load_model(low_memory=False):
         model = models.get("low_mem", None)
         if not model:
             model_path = await download_model("lid.176.ftz")
+            try:
+                # silences warnings as the package does not properly use the python 'warnings' package
+                # see https://github.com/facebookresearch/fastText/issues/1056
+                fasttext.FastText.eprint = lambda *args,**kwargs: None
+            except:
+                pass
             model = fasttext.load_model(model_path)
             models["low_mem"] = model
         return model
