@@ -2,16 +2,16 @@ from setuptools import setup
 from setuptools import find_packages
 
 setup(name='fasttext-langdetect',
-      version='1.0.4',
+      version='1.1.0',
       description='80x faster and 95% accurate language identification with Fasttext',
       keywords=['fasttext', 'langdetect', 'language detection',
                 'language identification'],
       long_description=open("README.md", "r", encoding='utf-8').read(),
       long_description_content_type="text/markdown",
-      url='https://github.com/zafercavdar/fasttext-langdetect.git',
-      download_url='https://github.com/zafercavdar/fasttext-langdetect/archive/refs/tags/v1.0.4.tar.gz',
-      author='Zafer Cavdar',
-      author_email='zafercavdar@yahoo.com',
+      url='https://github.com/tako-discord/fasttext-langdetect.git',
+      download_url='https://github.com/tako-discord/fasttext-langdetect/archive/refs/tags/v1.1.0.tar.gz',
+      author='Pukima',
+      author_email='pukima@pukima.site',
       install_requires=[
         req.strip()
         for req in open("requirements.txt", "r").readlines()
