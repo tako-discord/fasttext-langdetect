@@ -16,7 +16,7 @@ async def download_model(name: str) -> str:
         with open(target_path, "wb") as fp:
             async with aiohttp.ClientSession() as session:
                 async with session.get(url) as response:
-                    fp.write(response.content)
+                    fp.write(await response.read())
     return target_path
 
 
