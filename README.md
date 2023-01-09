@@ -1,5 +1,5 @@
 # fasttext-langdetect
-This library is a wrapper for the language detection model trained on fasttext by Facebook. For more information, please visit: https://fasttext.cc/docs/en/language-identification.html
+This library is a wrapper for the language detection model trained on fasttext by Facebook. For more information, please visit: https://fasttext.cc/docs/en/language-identification.html. It's a fork of [zafercavdar/fasttext-langdetect](https://github.com/zafercavdar/fasttext-langdetect) and makes the code async while also fixing some bugs.
 
 
 ## Supported languages
