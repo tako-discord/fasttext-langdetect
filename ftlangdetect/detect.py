@@ -1,11 +1,16 @@
 import os
-from typing import Dict, Union
+from typing import Dict, Union, TypedDict
 
 import fasttext
 import aiohttp
 
 models = {"low_mem": None, "high_mem": None}
 FTLANG_CACHE = os.getenv("FTLANG_CACHE", "/tmp/fasttext-langdetect")
+
+
+class DetectionResponse(TypedDict):
+    lang: str
+    score: float
 
 
 async def download_model(name: str, path = None) -> str:
@@ -43,7 +48,7 @@ async def get_or_load_model(low_memory=False, path = None):
         return model
 
 
-async def detect(text: str, low_memory: bool = False, path = None) -> Dict[str, Union[str, float]]:
+async def detect(text: str, low_memory: bool = False, path = None) -> DetectionResponse:
     model = await get_or_load_model(low_memory, path)
     labels, scores = model.predict(text)
     label = labels[0].replace("__label__", '')
